@@ -1,0 +1,15 @@
+.success {
+  background-color: rgb(228, 253, 245);
+}
+
+.itemWrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  box-shadow: 0 0 4px rgb(86, 86, 86);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
