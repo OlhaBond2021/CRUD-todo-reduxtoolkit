@@ -1,7 +1,10 @@
 /* eslint-disable react/prop-types */
 import { NavLink } from "react-router-dom";
+import { CiSquareChevLeft } from "react-icons/ci";
+import { CiSquareChevRight } from "react-icons/ci";
 import styles from "./MainNavigation.module.css";
 
+// MainNavigation component for displaying navigation links
 const MainNavigation = ({
   pages,
   prevPageHandler,
@@ -10,6 +13,7 @@ const MainNavigation = ({
   totalPages,
   currentPage,
 }) => {
+  // Calculate which pages to display based on the current page
   let pagesToDisplay = pages;
 
   if (pages.length > 5) {
@@ -32,7 +36,7 @@ const MainNavigation = ({
       <ul className={styles.list}>
         <li>
           <NavLink to={`/${setCurrentPage}`} onClick={prevPageHandler}>
-            Prev
+            <CiSquareChevLeft />
           </NavLink>
         </li>
         {pagesToDisplay.map((page) => (
@@ -40,22 +44,22 @@ const MainNavigation = ({
             <NavLink
               to={`/${page}`}
               key={page}
+              end
               onClick={() => setCurrentPage(page)}
               className={({ isActive }) =>
                 isActive ? styles.active : undefined
               }
             >
-              {page}
+              {`${page}/${totalPages}`}
             </NavLink>
           </li>
         ))}
         <li>
           <NavLink to={`/${setCurrentPage}`} onClick={nextPageHandler}>
-            Next
+            <CiSquareChevRight />
           </NavLink>
         </li>
       </ul>
-      <p>Total pages: {totalPages}</p>
     </nav>
   );
 };

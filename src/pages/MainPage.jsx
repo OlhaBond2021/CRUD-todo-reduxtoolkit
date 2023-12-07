@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import AddTodoForm from "../components/AddTodoForm";
 import TodoList from "../components/TodoList/TodoList";
-import TotalCompleteItems from "../components/TotalCompleteItems";
 import Notification from "../components/UI/Notification";
 import styles from "./MainPage.module.css";
 
@@ -19,12 +18,13 @@ const MainPage = () => {
           message={notification.message}
         />
       )}
-      <div className={styles.manePage}>
-        <h1>My Todo List</h1>
-        <AddTodoForm />
-        <TotalCompleteItems />
-        <TodoList />
-      </div>
+      <main className={styles.mainWrapper}>
+        <div className={styles.manePage}>
+          <h1>My Todo List</h1>
+          <AddTodoForm />
+          <TodoList />
+        </div>
+      </main>
     </>
   );
 };

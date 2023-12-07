@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { uiActions } from "./ui-slice";
 
+// Async thunk to fetch todos from a server
 export const getTodosAsync = createAsyncThunk(
   "todos/getTodosAsync",
   async (_, { dispatch, rejectWithValue }) => {
@@ -26,6 +27,7 @@ export const getTodosAsync = createAsyncThunk(
   }
 );
 
+// Async thunk to add a new todo to the server
 export const addTodoAsync = createAsyncThunk(
   "todos/addTodosAsync",
   async (payload, { dispatch, rejectWithValue }) => {
@@ -59,6 +61,7 @@ export const addTodoAsync = createAsyncThunk(
   }
 );
 
+// Async thunk to toggle completed todo on the server
 export const toddleCompleteTodoAsync = createAsyncThunk(
   "todos/completeTodoAsync",
   async (payload, { dispatch, rejectWithValue }) => {
@@ -95,6 +98,7 @@ export const toddleCompleteTodoAsync = createAsyncThunk(
   }
 );
 
+// Async thunk to delete todo from the server
 export const deleteCompleteTodoAsync = createAsyncThunk(
   "todos/deleteTodoAsync",
   async (payload, { dispatch, rejectWithValue }) => {
@@ -131,6 +135,7 @@ export const deleteCompleteTodoAsync = createAsyncThunk(
   }
 );
 
+// Async thunk to adit todo on the server
 export const editTodoAsync = createAsyncThunk(
   "todos/editTodoAsync",
   async (payload, { dispatch, rejectWithValue }) => {
@@ -167,6 +172,7 @@ export const editTodoAsync = createAsyncThunk(
   }
 );
 
+// Define the slice for managing todos
 const todoSlice = createSlice({
   name: "todos",
   initialState: { list: [], editedTitle: "" },
@@ -208,6 +214,7 @@ const todoSlice = createSlice({
   },
 
   extraReducers: (builder) => {
+    // Handle fulfilled actions from async thunks
     builder.addCase(getTodosAsync.fulfilled, (state, action) => {
       console.log("fetched data successfully");
       state.list = action.payload.todos;
@@ -238,13 +245,10 @@ const todoSlice = createSlice({
         existingTodo.title = title;
       }
     });
-
-    // builder.addCase(editTodoAsync.rejected, (state, action) => {
-    //   console.error('Failed to update todo:', action.error);
-    // });
   },
 });
 
+// Export action creators and reducer from the todoSlice
 export const { addTodo, setEditedTitle, toggleComplete, deleteTodo } =
   todoSlice.actions;
 
