@@ -9,15 +9,15 @@ Currently, two official plugins are available:
 
 # Installation:
 
-npm install @reduxjs/toolkit@^2.0.0
+npm install @reduxjs/toolkit
 
-npm install react-redux@^9.0.0
+npm install react-redux
 
-npm install react-router-dom@^6.20.1
+npm install react-router-dom
 
-npm install bootstrap@^5.3.2
+npm install bootstrap
 
-npm install react-icons@^4.12.0
+npm install react-icons
 
 # Launch:
 
